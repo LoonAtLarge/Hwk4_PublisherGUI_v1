@@ -1,0 +1,46 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hwk4_PublisherGUI_v1"
+        xmlns:Fashakin_HW1_ClassLibrary="clr-namespace:Fashakin_HW1_ClassLibrary;assembly=Fashakin_HW1_ClassLibrary" x:Class="Hwk4_PublisherGUI_v1.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="653" Width="1202">
+    <Grid>
+        <ListView x:Name="bookBox" Height="384" Margin="10,228,0,14" Width="534" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Books}" HorizontalAlignment="Left">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="authorBox" Height="186" Margin="694,426,14,14" Width="490" ItemsSource="{Binding Authors}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding First}" Header="First"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Last}" Header="Last"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Background}" Header="Background"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Publisher Filename" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.346" Width="117"/>
+        <TextBox x:Name="filenameTxt" Height="23" Margin="132,14,14,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top"/>
+        <Button x:Name="openFileBtn" Content="Open Publisher JSON File" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="170" Height="32" Click="openFileBtn_Click"/>
+        <Label Content="Publisher Name" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Book Count" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" Width="107"/>
+        <TextBox x:Name="publisherTxt" Height="23" Margin="132,101,400,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" Text="{Binding Name}"/>
+        <TextBox x:Name="bookCountTxt" Height="23" Margin="132,150,399,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" Text="{Binding Items.Count, ElementName=bookBox, Mode=OneWay}"/>
+        <Label Content="Book Title" HorizontalAlignment="Left" Margin="549,329,0,0" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.211,-2.269"/>
+        <Label Content="Book Price" HorizontalAlignment="Left" Margin="549,374,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Authors" HorizontalAlignment="Left" Margin="549,426,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Target Book Title" HorizontalAlignment="Left" Margin="549,228,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="targetBookTxt" Height="23" Margin="694,232,14,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="findBookBtn" Content="Find Book" HorizontalAlignment="Left" Margin="694,260,0,0" VerticalAlignment="Top" Width="98" Height="43" Click="findBookBtn_Click"/>
+        <TextBox x:Name="titleTxt" Height="23" Margin="694,333,14,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" Text="{Binding Title}"/>
+        <TextBox x:Name="priceTxt" Height="23" Margin="694,378,14,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" Text="{Binding Price}"/>
+        <Label Content="Books" HorizontalAlignment="Left" Margin="10,197,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
